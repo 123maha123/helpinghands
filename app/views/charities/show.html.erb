@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Charityname:</strong>
+  <%= @charity.charityName %>
+</p>
+
+<p>
+  <strong>Ownerfname:</strong>
+  <%= @charity.ownerfname %>
+</p>
+
+<p>
+  <strong>Ownerlname:</strong>
+  <%= @charity.ownerlname %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @charity.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @charity.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @charity.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @charity.city %>
+</p>
+
+<p>
+  <strong>Landmark:</strong>
+  <%= @charity.landmark %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @charity.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @charity.country %>
+</p>
+
+<p>
+  <strong>Phoneno:</strong>
+  <%= @charity.phoneNo %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @charity.description %>
+</p>
+
+<%= link_to 'Edit', edit_charity_path(@charity) %> |
+<%= link_to 'Back', charities_path %>

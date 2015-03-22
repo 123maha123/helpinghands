@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Fname:</strong>
+  <%= @donor.fname %>
+</p>
+
+<p>
+  <strong>Lname:</strong>
+  <%= @donor.lname %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @donor.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @donor.email %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @donor.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @donor.city %>
+</p>
+
+<p>
+  <strong>Landmark:</strong>
+  <%= @donor.landmark %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @donor.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @donor.country %>
+</p>
+
+<p>
+  <strong>Phoneno:</strong>
+  <%= @donor.phoneNo %>
+</p>
+
+<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<%= link_to 'Back', donors_path %>

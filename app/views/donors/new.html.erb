@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="jquery-1.11.2.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="users.js"></script>
+    </head>
+    <body>
+        <%=render 'layouts/signup_navigation_bar'%>
+        <div class="container-fluid side-borders header-padding page-color">
+        <br>
+            <h2>Create a Helper Account</h2>
+            <br>
+            <%= render 'form' %>
+        </div>
+        <%=render 'layouts/footer'%>
+    </body>
+</html>
