@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wname:</strong>
+  <%= @wishlist.wname %>
+</p>
+
+<p>
+  <strong>Wtype:</strong>
+  <%= @wishlist.wtype %>
+</p>
+
+<p>
+  <strong>Isactive:</strong>
+  <%= @wishlist.isActive %>
+</p>
+
+<p>
+  <strong>Wdescription:</strong>
+  <%= @wishlist.wdescription %>
+</p>
+
+<p>
+  <strong>Wphoto:</strong>
+  <%=image_tag @wishlist.wphoto.url %>
+</p>
+
+<p>
+  <strong>Charity:</strong>
+  <%= @wishlist.charity %>
+</p>
+
+<%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
+<%= link_to 'Back', wishlists_path %>

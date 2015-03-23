@@ -1,0 +1,42 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title text-center" id="myModalLabel">
+                    Login
+                </h4>
+            </div>
+            <div class="modal-body">
+                <%= form_tag( 'users/login', :method => :post) do %>
+                    <%=render 'layouts/loginForm'%>
+                <%end%>
+            </div>
+            <div class="modal-footer">
+                <p>New user? <%= link_to "Sign up now!","#signupModal",:class=>"btn btn-primary",:data=>{:toggle=>"modal"}%></p>
+                <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                &times;
+                            </button>
+                            <div class="modal-header">
+                                <h4 class="modal-title text-center" id="myModalLabel">Not a Member Yet?</h4>
+                            </div>
+                            <div class="modal-body">
+                                <a href="https://hh-aham123.c9.io/donors/new" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;&nbsp;Create a Helper Account&nbsp;</a>
+                                <br>
+                                <br>
+                                <a href="https://hh-aham123.c9.io/charities/new" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-piggy-bank"></span>&nbsp;&nbsp;&nbsp;Create a Charity Account</a>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -25,10 +25,9 @@ class DonorsController < ApplicationController
   # POST /donors.json
   def create
     @donor = Donor.new(donor_params)
+
     respond_to do |format|
       if @donor.save
-        session[:user_name]=@donor.fname
-        session[:user_id]=@donor.id
         format.html { render :trial, notice: 'Donor was successfully created.' }
         format.json { render :show, status: :created, location: @donor }
       else
@@ -43,7 +42,7 @@ class DonorsController < ApplicationController
   def update
     respond_to do |format|
       if @donor.update(donor_params)
-        format.html { render :trial, notice: 'Donor was successfully updated.' }
+        format.html { redirect_to @donor, notice: 'Donor was successfully updated.' }
         format.json { render :show, status: :ok, location: @donor }
       else
         format.html { render :edit }
@@ -61,24 +60,7 @@ class DonorsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def loginAuthenticate
-    user=Donor.find_by(username:params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_name]=user.fname
-        session[:user_id]=user.id
-      render 'trial'
-    else
-      render 'welcome'
-    end
-  end
-  
-  def logout
-    session[:user_id] = nil
-    session[:user_name]=nil
-    render "welcome"
-  end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_donor
@@ -87,6 +69,6 @@ class DonorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donor_params
-      params.require(:donor).permit(:fname, :lname, :username, :email, :password, :password_confirmation, :address, :city, :landmark, :state, :country, :phoneNo)
+      params.require(:donor).permit(:fname, :lname, :address, :city, :landmark, :state, :country, :phoneNo, :user_id)
     end
 end

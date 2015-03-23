@@ -1,268 +1,61 @@
-<div class="container">
-  <div>
-    <ul class="nav nav-tabs nav-pills">
-      <li class="active" id="infoTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Basic Info</b></a></li>
-      <li class="" id="addressTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Address</b></a></li>
-    </ul>
-  </div>
-  <%= form_for(@charity) do |f| %>
-    <div class="container col-sm-12 form-color form-border" style="padding-bottom:1%">
-      <div class="tab-content">
-        <div class="tab-pane active" id="info-tab">
-          
-          <div class="form-group row header-padding">
-            <%= f.label "Charity Name",class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :charityName, placeholder: 'Charity name',class:'form-control'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:charityName].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:charityName)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
+<%= form_for(@charity) do |f| %>
+  <% if @charity.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this charity from being saved:</h2>
 
-          <div class="form-group row">
-            <%= f.label :description,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :description,class:'form-control', placeholder: 'Enter your phoneNo'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:description].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:description)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <%= f.label "Owner Name",class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :ownerfname, placeholder: 'First name',class:'form-control'%>
-            </div>
-            <div class="col-sm-3">
-              <%= f.text_field :ownerlname, placeholder: 'Last name',class:'form-control'%>
-            </div>
-            <div class="col-sm-4">
-              <%if @charity.errors[:ownerfname].any? || @charity.errors[:ownerlname].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:ownerfname)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <%for errMsg in @charity.errors.full_messages_for(:ownerlname)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-          
-          <div class="form-group row">
-            <%= f.label :username,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :username, placeholder: 'Enter a username',class:'form-control' %>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:username].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:username)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-          
-          <div class="form-group row">
-            <%= f.label :email,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :email,class:'form-control', placeholder: 'Email address' %>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:email].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:email)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-          
-          <div class="form-group row">
-            <%= f.label :password,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.password_field :password,class:'form-control', placeholder: 'Password'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:password].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:password)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-      
-          <div class="form-group row">
-            <%= f.label "Confirm Password",class:'control-label col-sm-2'%>
-              <div class="col-sm-3">
-              <%= f.password_field :password_confirmation,class:'form-control', placeholder: 'Confirm password'%>
-            </div>
-          </div>
-        
-          <div class="form-group">
-            <div class="col-sm-4 col-sm-offset-3">
-              <a href="#address-tab" data-toggle="tab" class="btn btn-primary" id="nextSignupButton">Next</a>
-            </div>
-          </div>
-        </div>
-        
-        
-        <div class="tab-pane" id="address-tab">
-          <div class="form-group row header-padding">
-            <%= f.label :address,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :address,class:'form-control', placeholder: 'Enter your address'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:address].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:address)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-      
-          <div class="form-group row">
-            <%= f.label :landmark,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :landmark,class:'form-control', placeholder: 'Enter your landmark'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:landmark].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:landmark)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-        
-          <div class="form-group row">
-            <%= f.label :city,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :city,class:'form-control', placeholder: 'Enter your city'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:city].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:city)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-      
-          <div class="form-group row">
-            <%= f.label :state,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :state,class:'form-control', placeholder: 'Enter your state'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:state].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:state)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-      
-          <div class="form-group row">
-            <%= f.label :country,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :country,class:'form-control', placeholder: 'Enter your country'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:country].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:country)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-          
-          <div class="form-group row">
-            <%= f.label "Phone No",class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :phoneNo,class:'form-control', placeholder: 'Enter your phoneNo'%>
-            </div>
-            <div class="col-sm-6">
-              <%if @charity.errors[:phoneNo].any? %>
-                <ul>
-                  <%msg=""%>
-                  <%for errMsg in @charity.errors.full_messages_for(:phoneNo)%>
-                    <%msg="#{errMsg}. #{msg}"%>
-                  <%end%>
-                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
-                </ul>
-              <%end%>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <div class="col-sm-2 col-sm-offset-1">
-              <a href="#info-tab" data-toggle="tab" class="btn btn-primary" id="backSignupButton">Back</a>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <div class="col-sm-4">
-              <%=f.submit :Register,:class=>"btn btn-primary"%>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ul>
+      <% @charity.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
   <% end %>
-</div>
-<br>
-<br>
+
+  <div class="field">
+    <%= f.label :charityName %><br>
+    <%= f.text_field :charityName %>
+  </div>
+  <div class="field">
+    <%= f.label :ownerfname %><br>
+    <%= f.text_field :ownerfname %>
+  </div>
+  <div class="field">
+    <%= f.label :ownerlname %><br>
+    <%= f.text_field :ownerlname %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :landmark %><br>
+    <%= f.text_field :landmark %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br>
+    <%= f.text_field :country %>
+  </div>
+  <div class="field">
+    <%= f.label :phoneNo %><br>
+    <%= f.number_field :phoneNo %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

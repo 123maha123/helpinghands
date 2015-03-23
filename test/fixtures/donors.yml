@@ -3,25 +3,21 @@
 one:
   fname: MyString
   lname: MyString
-  username: MyString
-  email: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
   address: MyString
   city: MyString
   landmark: MyString
   state: MyString
   country: MyString
   phoneNo: 1
+  user_id: 
 
 two:
   fname: MyString
   lname: MyString
-  username: MyString
-  email: MyString
-  password_digest: <%= BCrypt::Password.create('secret') %>
   address: MyString
   city: MyString
   landmark: MyString
   state: MyString
   country: MyString
   phoneNo: 1
+  user_id: 

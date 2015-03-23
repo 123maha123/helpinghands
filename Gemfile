@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'paperclip', '~> 4.2.1'
 # Validate email
 gem 'validates_email_format_of','1.6.2'
 # To hash passwords
@@ -40,4 +41,3 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

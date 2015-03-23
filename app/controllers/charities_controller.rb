@@ -42,7 +42,7 @@ class CharitiesController < ApplicationController
   def update
     respond_to do |format|
       if @charity.update(charity_params)
-        format.html { render :trial, notice: 'Charity was successfully updated.' }
+        format.html { redirect_to @charity, notice: 'Charity was successfully updated.' }
         format.json { render :show, status: :ok, location: @charity }
       else
         format.html { render :edit }
@@ -60,16 +60,7 @@ class CharitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  def loginAuthenticate
-    user=Charity.find_by(username:params[:username])
-    if user && user.authenticate(params[:password])
-      render 'trial'
-    else
-      render '/donors/welcome'
-    end
-  end
-  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_charity
@@ -78,6 +69,6 @@ class CharitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def charity_params
-      params.require(:charity).permit(:charityName, :ownerfname, :ownerlname, :username, :email, :password, :password_confirmation, :address, :city, :landmark, :state, :country, :phoneNo, :description)
+      params.require(:charity).permit(:charityName, :ownerfname, :ownerlname, :address, :city, :landmark, :state, :country, :phoneNo, :description, :user_id)
     end
 end

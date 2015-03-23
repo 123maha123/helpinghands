@@ -18,7 +18,7 @@ class CharitiesControllerTest < ActionController::TestCase
 
   test "should create charity" do
     assert_difference('Charity.count') do
-      post :create, charity: { address: @charity.address, charityName: @charity.charityName, city: @charity.city, country: @charity.country, description: @charity.description, email: @charity.email, landmark: @charity.landmark, ownerfname: @charity.ownerfname, ownerlname: @charity.ownerlname, password: 'secret', password_confirmation: 'secret', phoneNo: @charity.phoneNo, state: @charity.state, username: @charity.username }
+      post :create, charity: { address: @charity.address, charityName: @charity.charityName, city: @charity.city, country: @charity.country, description: @charity.description, landmark: @charity.landmark, ownerfname: @charity.ownerfname, ownerlname: @charity.ownerlname, phoneNo: @charity.phoneNo, state: @charity.state, user_id: @charity.user_id }
     end
 
     assert_redirected_to charity_path(assigns(:charity))
@@ -35,7 +35,7 @@ class CharitiesControllerTest < ActionController::TestCase
   end
 
   test "should update charity" do
-    patch :update, id: @charity, charity: { address: @charity.address, charityName: @charity.charityName, city: @charity.city, country: @charity.country, description: @charity.description, email: @charity.email, landmark: @charity.landmark, ownerfname: @charity.ownerfname, ownerlname: @charity.ownerlname, password: 'secret', password_confirmation: 'secret', phoneNo: @charity.phoneNo, state: @charity.state, username: @charity.username }
+    patch :update, id: @charity, charity: { address: @charity.address, charityName: @charity.charityName, city: @charity.city, country: @charity.country, description: @charity.description, landmark: @charity.landmark, ownerfname: @charity.ownerfname, ownerlname: @charity.ownerlname, phoneNo: @charity.phoneNo, state: @charity.state, user_id: @charity.user_id }
     assert_redirected_to charity_path(assigns(:charity))
   end
 

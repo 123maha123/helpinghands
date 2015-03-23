@@ -16,16 +16,6 @@
 </p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @charity.username %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @charity.email %>
-</p>
-
-<p>
   <strong>Address:</strong>
   <%= @charity.address %>
 </p>
@@ -58,6 +48,11 @@
 <p>
   <strong>Description:</strong>
   <%= @charity.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @charity.user %>
 </p>
 
 <%= link_to 'Edit', edit_charity_path(@charity) %> |

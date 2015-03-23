@@ -1,1 +1,1 @@
-json.extract! @donor, :id, :fname, :lname, :username, :email, :address, :city, :landmark, :state, :country, :phoneNo, :created_at, :updated_at
+json.extract! @donor, :id, :fname, :lname, :address, :city, :landmark, :state, :country, :phoneNo, :user_id, :created_at, :updated_at

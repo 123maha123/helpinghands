@@ -1,0 +1,35 @@
+<h1>Listing wishlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wphoto</th>
+      <th>Wname</th>
+      <th>Wtype</th>
+      <th>Isactive</th>
+      <th>Wdescription</th>
+      <th>Charity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wishlists.each do |wishlist| %>
+      <tr>
+        <td><%=image_tag wishlist.wphoto.url(:thumb) %></td>
+        <td><%= wishlist.wname %></td>
+        <td><%= wishlist.wtype %></td>
+        <td><%= wishlist.isActive %></td>
+        <td><%= wishlist.wdescription %></td>
+        <td><%= wishlist.charity %></td>
+        <td><%= link_to 'Show', wishlist %></td>
+        <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
+        <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wishlist', new_wishlist_path %>

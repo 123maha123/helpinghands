@@ -21,15 +21,27 @@
             </ul>
             <ul class="nav navbar-right navbar-nav">
                 <li>
-                    <% if current_user %>
-                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
-                            Hi &nbsp;<%= current_user.fname %>
-                            <span class="caret"></span>
-                        </a>
+                    <% if current_user%>
+                        <% if current_user_type=="donor"%>
+                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                                Hi &nbsp;<%= current_user.fname %>
+                                <span class="caret"></span>
+                            </a>
+                        <% elsif current_user_type=="charity"%>
+                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                                Hi &nbsp;<%= current_user.charityName %>
+                                <span class="caret"></span>
+                            </a>
+                        <% elsif current_user_type=="admin"%>
+                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                                Hi &nbsp;<%= current_user %>
+                                <span class="caret"></span>
+                            </a>
+                        <%end%>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Settings</a></li>
                             <li role="presentation"><%= link_to :Logout, logout_path %></li>
-                        </ul>
+                        </u>l
                     <% else %>
                         <a href="#" class="btn" data-toggle="modal" data-target="#loginModal">
                             LOGIN/SIGNUP
@@ -41,65 +53,4 @@
     </div>
 </nav>
         
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title text-center" id="myModalLabel">
-                    Login
-                </h4>
-            </div>
-            <div class="modal-body">
-                <div>
-                    <ul class="nav nav-tabs" id="mytab">
-                    <li class="active"><a href="#donarLoginSection" data-toggle="tab">Helpers</a></li>
-                        <li><a href="#charityLoginSection" data-toggle="tab">Charity</a></li>
-                        <li><a href="#adminLoginSection" data-toggle="tab">Admin</a></li>
-                    </ul>
-                </div>
-                <br>
-                <div id="myTabContent" class="tab-content">
-                    <div id="charityLoginSection" class="tab-pane fade in">
-                        <%= form_tag( '/charities/loginAuthenticate', :method => :post) do %>
-                            <%=render 'layouts/loginForm'%>
-                        <%end%>
-                    </div>
-                    <div id="donarLoginSection" class="tab-pane fade active in">
-                        <%= form_tag( '/donors/loginAuthenticate', :method => :post) do %>
-                            <%=render 'layouts/loginForm'%>
-                        <%end%>
-                    </div>
-                    <div id="adminLoginSection" class="tab-pane fade">
-                        lalallalalala alalalalla lalalala
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <p>New user? <%= link_to "Sign up now!","#signupModal",:class=>"btn btn-primary",:data=>{:toggle=>"modal"}%></p>
-                <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm">
-                        <div class="modal-content">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                &times;
-                            </button>
-                            <div class="modal-header">
-                                <h4 class="modal-title text-center" id="myModalLabel">Not a Member Yet?</h4>
-                            </div>
-                            <div class="modal-body">
-                                <a href="https://hh-aham123.c9.io/donors/new" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-gift"></span>&nbsp;&nbsp;&nbsp;Create a Helper Account&nbsp;</a>
-                                <br>
-                                <br>
-                                <a href="https://hh-aham123.c9.io/charities/new" class="btn btn-primary pull-left"><span class="glyphicon glyphicon-piggy-bank"></span>&nbsp;&nbsp;&nbsp;Create a Charity Account</a>
-                                <br>
-                                <br>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%=render 'layouts/login_modal'%>

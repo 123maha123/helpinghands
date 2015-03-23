@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
+  resources :users
+
+  resources :admins
+
+  resources :wishlists
+
   resources :charities
 
   resources :donors
+
+  resources :categories
   
-  get 'logout'=>'donors#logout'
+  get 'users'=>'users#index'
+  get 'logout'=>'users#logout'
+  post 'users/login'=>'users#login'
   post 'donors/loginAuthenticate'=>'donors#loginAuthenticate'
   post 'charities/loginAuthenticate'=>'charities#loginAuthenticate'
+  post 'admins/loginAuthenticate'=>'admins#loginAuthenticate'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -20,7 +31,15 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  
+  resources :charities do
+    resources :wishlists
+  end
+  
+  resources :users do
+    resources :charities,:donors,:admins
+  end
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
