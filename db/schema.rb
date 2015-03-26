@@ -11,6 +11,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20150326072332) do
+
+  create_table "charities", force: true do |t|
+    t.string   "charityName"
+    t.string   "ownerfname"
+    t.string   "ownerlname"
+    t.string   "address"
+    t.string   "city"
+    t.string   "landmark"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "phoneNo"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donors", force: true do |t|
+    t.string   "fname"
+    t.string   "lname"
+    t.string   "address"
+    t.string   "city"
+    t.string   "landmark"
+    t.string   "state"
+    t.string   "country"
+    t.integer  "phoneNo"
+    t.string   "donortype"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "username"
+    t.string   "password_digest"
+    t.string   "email"
+    t.string   "usertype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wishlists", force: true do |t|
+    t.string   "wname"
+    t.string   "wtype"
+    t.string   "isActive"
+    t.string   "wdescription"
+    t.string   "wphoto_file_name"
+    t.string   "wphoto_content_type"
+    t.integer  "wphoto_file_size"
+    t.datetime "wphoto_updated_at"
+    t.integer  "charity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

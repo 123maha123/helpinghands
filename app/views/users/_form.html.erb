@@ -1,37 +1,104 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container">
+  <div>
+    <ul class="nav nav-tabs nav-pills">
+      <li class="active" id="userTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Account Creation</b></a></li>
+      <li class="" id=""><a href="#" class="btn btn-info" style="cursor:default;"><b>Basic Info</b></a></li>
+      <li class="" id=""><a href="#" class="btn btn-info" style="cursor:default;"><b>Address</b></a></li>
+    </ul>
+  </div>
+  <%= form_for(@user) do |f| %>
+    <div class="container col-sm-12 form-color form-border" style="padding-bottom:1%">
+      <div class="tab-content">
+        <div class="tab-pane active" id="user-tab">
+            <div class="form-group row header-padding">
+              <%= f.label :username,class:'control-label col-sm-2'%>
+            <div class="col-sm-3">
+              <%= f.text_field :username, placeholder: 'Enter a username',class:'form-control' %>
+            </div>
+            <div class="col-sm-6">
+              <%if @user.errors[:username].any? %>
+                <ul>
+                  <%msg=""%>
+                  <%for errMsg in @user.errors.full_messages_for(:username)%>
+                    <%msg="#{errMsg}. #{msg}"%>
+                  <%end%>
+                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
+                </ul>
+              <%end%>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <%= f.label :email,class:'control-label col-sm-2'%>
+            <div class="col-sm-3">
+              <%= f.text_field :email,class:'form-control', placeholder: 'Email address' %>
+            </div>
+            <div class="col-sm-6">
+              <%if @user.errors[:email].any? %>
+                <ul>
+                  <%msg=""%>
+                  <%for errMsg in @user.errors.full_messages_for(:email)%>
+                    <%msg="#{errMsg}. #{msg}"%>
+                  <%end%>
+                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
+                </ul>
+              <%end%>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <%= f.label :password,class:'control-label col-sm-2'%>
+            <div class="col-sm-3">
+              <%= f.password_field :password,class:'form-control', placeholder: 'Password'%>
+            </div>
+            <div class="col-sm-6">
+              <%if @user.errors[:password].any? %>
+                <ul>
+                  <%msg=""%>
+                  <%for errMsg in @user.errors.full_messages_for(:password)%>
+                    <%msg="#{errMsg}. #{msg}"%>
+                  <%end%>
+                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
+                </ul>
+              <%end%>
+            </div>
+          </div>
+      
+          <div class="form-group row">
+            <%= f.label "Confirm Password",class:'control-label col-sm-2'%>
+              <div class="col-sm-3">
+              <%= f.password_field :password_confirmation,class:'form-control', placeholder: 'Confirm password'%>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <%= f.label :usertype,class:'control-label col-sm-2'%>
+            <div class="col-sm-3">
+              <%= f.text_field :usertype,class:'form-control', placeholder: 'Email the user type' %>
+            </div>
+            <div class="col-sm-6">
+              <%if @user.errors[:usertype].any? %>
+                <ul>
+                  <%msg=""%>
+                  <%for errMsg in @user.errors.full_messages_for(:usertype)%>
+                    <%msg="#{errMsg}. #{msg}"%>
+                  <%end%>
+                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
+                </ul>
+              <%end%>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="col-sm-4 col-sm-offset-1">
+              <%=f.submit :Register,:class=>"btn btn-primary"%>
+            </div>
+          </div>
+        </div>
+          
+      </div>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :usertype %><br>
-    <%= f.text_field :usertype %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+<br>
+<br>

@@ -22,12 +22,12 @@
 
 <p>
   <strong>Wphoto:</strong>
-  <%=image_tag @wishlist.wphoto.url %>
+  <%= @wishlist.wphoto %>
 </p>
 
 <p>
   <strong>Charity:</strong>
-  <%= @wishlist.charity %>
+  <%= @wishlist.charity_id %>
 </p>
 
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |

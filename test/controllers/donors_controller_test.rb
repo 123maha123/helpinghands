@@ -18,7 +18,7 @@ class DonorsControllerTest < ActionController::TestCase
 
   test "should create donor" do
     assert_difference('Donor.count') do
-      post :create, donor: { address: @donor.address, city: @donor.city, country: @donor.country, fname: @donor.fname, landmark: @donor.landmark, lname: @donor.lname, phoneNo: @donor.phoneNo, state: @donor.state, user_id: @donor.user_id }
+      post :create, donor: { address: @donor.address, city: @donor.city, country: @donor.country, donortype: @donor.donortype, fname: @donor.fname, landmark: @donor.landmark, lname: @donor.lname, phoneNo: @donor.phoneNo, state: @donor.state, user_id: @donor.user_id }
     end
 
     assert_redirected_to donor_path(assigns(:donor))
@@ -35,7 +35,7 @@ class DonorsControllerTest < ActionController::TestCase
   end
 
   test "should update donor" do
-    patch :update, id: @donor, donor: { address: @donor.address, city: @donor.city, country: @donor.country, fname: @donor.fname, landmark: @donor.landmark, lname: @donor.lname, phoneNo: @donor.phoneNo, state: @donor.state, user_id: @donor.user_id }
+    patch :update, id: @donor, donor: { address: @donor.address, city: @donor.city, country: @donor.country, donortype: @donor.donortype, fname: @donor.fname, landmark: @donor.landmark, lname: @donor.lname, phoneNo: @donor.phoneNo, state: @donor.state, user_id: @donor.user_id }
     assert_redirected_to donor_path(assigns(:donor))
   end
 

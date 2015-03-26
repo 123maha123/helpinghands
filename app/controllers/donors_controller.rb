@@ -14,7 +14,9 @@ class DonorsController < ApplicationController
 
   # GET /donors/new
   def new
-    @donor = Donor.new
+    #@donor = Donor.new
+    @user = User.find(params[:user_id])
+    @donor = @user.build_donor
   end
 
   # GET /donors/1/edit
@@ -24,11 +26,13 @@ class DonorsController < ApplicationController
   # POST /donors
   # POST /donors.json
   def create
-    @donor = Donor.new(donor_params)
+    #@donor = Donor.new(donor_params)
+    @user = User.find(params[:user_id])
+    @donor = @user.build_donor(donor_params)
 
     respond_to do |format|
       if @donor.save
-        format.html { render :trial, notice: 'Donor was successfully created.' }
+        format.html { redirect_to @donor, notice: 'Donor was successfully created.' }
         format.json { render :show, status: :created, location: @donor }
       else
         format.html { render :new }
@@ -69,6 +73,6 @@ class DonorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donor_params
-      params.require(:donor).permit(:fname, :lname, :address, :city, :landmark, :state, :country, :phoneNo, :user_id)
+      params.require(:donor).permit(:fname, :lname, :address, :city, :landmark, :state, :country, :phoneNo, :donortype, :user_id)
     end
 end

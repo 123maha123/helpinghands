@@ -11,7 +11,7 @@ one:
   country: MyString
   phoneNo: 1
   description: MyString
-  user_id: 
+  user_id: 1
 
 two:
   charityName: MyString
@@ -24,4 +24,4 @@ two:
   country: MyString
   phoneNo: 1
   description: MyString
-  user_id: 
+  user_id: 1

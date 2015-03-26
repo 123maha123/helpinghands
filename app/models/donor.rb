@@ -3,9 +3,11 @@ class Donor < ActiveRecord::Base
   validates :fname, presence: true
   validates :lname, presence: true
   validates :address, presence: true
-  validates :landmark, presence: true
+  validates :landmark,presence: true
   validates :city, presence: true
   validates :state, presence: true
   validates :country, presence: true
+  validates :donortype,presence: true
   validates :phoneNo,presence:true,length:{is:10,message:"should be of length 10"},numericality: true
+  validates :user_id,presence: true
 end

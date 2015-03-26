@@ -21,32 +21,42 @@
             </ul>
             <ul class="nav navbar-right navbar-nav">
                 <li>
-                    <% if current_user%>
-                        <% if current_user_type=="donor"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                    <% if current_user_type=="donor"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            <% if current_user%>
                                 Hi &nbsp;<%= current_user.fname %>
-                                <span class="caret"></span>
-                            </a>
-                        <% elsif current_user_type=="charity"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            <%else%>
+                                Welcome Donor!
+                            <%end%>    
+                            <span class="caret"></span>
+                        </a>
+                    <% elsif current_user_type=="charity"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            <% if current_user%>
                                 Hi &nbsp;<%= current_user.charityName %>
-                                <span class="caret"></span>
-                            </a>
-                        <% elsif current_user_type=="admin"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            <%else%>
+                                Welcome Charity!
+                            <%end%>
+                            <span class="caret"></span>
+                        </a>
+                    <% elsif current_user_type=="admin"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            <% if current_user%>
                                 Hi &nbsp;<%= current_user.fname %>
-                                <span class="caret"></span>
-                            </a>
-                        <%end%>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Settings</a></li>
-                            <li role="presentation"><%= link_to :Logout, logout_path %></li>
-                        </u>l
+                            <%else%>
+                                Welcome Admin!
+                            <%end%>
+                            <span class="caret"></span>
+                        </a>
                     <% else %>
                         <a href="#" class="btn" data-toggle="modal" data-target="#loginModal">
                             LOGIN/SIGNUP
                         </a>
                     <% end %>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Settings</a></li>
+                            <li role="presentation"><%= link_to :Logout, logout_path %></li>
+                        </u>l
                 </li>
             </ul>
         </div>

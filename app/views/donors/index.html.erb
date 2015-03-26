@@ -11,6 +11,7 @@
       <th>State</th>
       <th>Country</th>
       <th>Phoneno</th>
+      <th>Donortype</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -27,7 +28,8 @@
         <td><%= donor.state %></td>
         <td><%= donor.country %></td>
         <td><%= donor.phoneNo %></td>
-        <td><%= donor.user %></td>
+        <td><%= donor.donortype %></td>
+        <td><%= donor.user_id %></td>
         <td><%= link_to 'Show', donor %></td>
         <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
         <td><%= link_to 'Destroy', donor, method: :delete, data: { confirm: 'Are you sure?' } %></td>

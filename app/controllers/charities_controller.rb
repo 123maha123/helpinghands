@@ -14,7 +14,9 @@ class CharitiesController < ApplicationController
 
   # GET /charities/new
   def new
-    @charity = Charity.new
+    #@charity = Charity.new
+    @user = User.find(params[:user_id])
+    @charity = @user.build_charity
   end
 
   # GET /charities/1/edit
@@ -24,11 +26,13 @@ class CharitiesController < ApplicationController
   # POST /charities
   # POST /charities.json
   def create
-    @charity = Charity.new(charity_params)
+    #@charity = Charity.new(charity_params)
+    @user = User.find(params[:user_id])
+    @charity = @user.build_charity(charity_params)
 
     respond_to do |format|
       if @charity.save
-        format.html { render :trial, notice: 'Charity was successfully created.' }
+        format.html { redirect_to @charity, notice: 'Charity was successfully created.' }
         format.json { render :show, status: :created, location: @charity }
       else
         format.html { render :new }

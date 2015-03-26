@@ -41,8 +41,13 @@
 </p>
 
 <p>
+  <strong>Donortype:</strong>
+  <%= @donor.donortype %>
+</p>
+
+<p>
   <strong>User:</strong>
-  <%= @donor.user %>
+  <%= @donor.user_id %>
 </p>
 
 <%= link_to 'Edit', edit_donor_path(@donor) %> |

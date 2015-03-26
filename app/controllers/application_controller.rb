@@ -8,12 +8,10 @@ class ApplicationController < ActionController::Base
   def current_user
     # Note: we want to use "find_by_id" because it's OK to return a nil.
     # If we were to use User.find, it would throw an exception if the user can't be found.
-    if session[:user_id] && session[:user_type]=="donor"
+    if session[:user_id] && (session[:user_type]=="donor" || session[:user_type]=="admin")
       @current_user ||= Donor.where("user_id=?",session[:user_id]) 
     elsif session[:user_id] && session[:user_type]=="charity"
       @current_user ||= Charity.where("user_id=?",session[:user_id]) 
-    elsif session[:user_id] && session[:user_type]=="admin"
-      @current_user ||= Admin.where("user_id=?",session[:user_id]) 
     end
   end
   
