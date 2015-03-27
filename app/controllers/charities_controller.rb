@@ -32,6 +32,7 @@ class CharitiesController < ApplicationController
 
     respond_to do |format|
       if @charity.save
+        session[:fill_details]="true"
         format.html { redirect_to @charity, notice: 'Charity was successfully created.' }
         format.json { render :show, status: :created, location: @charity }
       else

@@ -26,11 +26,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-    session[:user_id]=@user.id
-    session[:user_type]=@user.usertype
-    
     respond_to do |format|
       if @user.save
+        session[:user_name]=@user.username
+        session[:user_id]=@user.id
+        session[:user_type]=@user.usertype
+        
         if @user.usertype=="admin" || @user.usertype=="donor"
           format.html { redirect_to :controller=>"donors",:action=>"new",:user_id=>@user.id,:donortype=>@user.usertype, notice: 'User was successfully created.' }
         elsif @user.usertype=="charity"
@@ -62,10 +63,36 @@ class UsersController < ApplicationController
   # DELETE /users/1.json
   def destroy
     @user.destroy
+    session[:user_id] = nil
+    session[:user_name]=nil
+    session[:user_type]=nil
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def login
+    user=User.find_by(username:params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_name]=user.username
+      session[:user_id]=user.id
+      session[:user_type]=user.usertype
+      if user.usertype=="charity"
+        render 'charities/trial'
+      else
+        render 'donors/trial'
+      end
+    else
+      render 'donors/welcome'
+    end
+  end
+  
+  def logout
+    session[:user_id] = nil
+    session[:user_name]=nil
+    session[:user_type]=nil
+    render "donors/welcome"
   end
 
   private

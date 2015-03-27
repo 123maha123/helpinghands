@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="jquery-1.11.2.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="users.js"></script>
+    </head>
+    <body>
+        <%=render 'layouts/signup_navigation_bar'%>
+        <div class="container-fluid side-borders header-padding page-color">
+        <br>
+        <div class="container">
+        <br><br>
+
+
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="sidebar-nav">
+                <div class="navbar navbar-default" role="navigation">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="visible-xs navbar-brand">Settings</span>
+                    </div>
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="sidebar-header"><a><b>My Account</b></a></li>
+                <li class=""><a href="#">Menu Item 2</a></li>
+                <li><a href="#">Menu Item 4</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="container white-color col-sm-8">
+        <br>
+        <%=render "users/form"%>
+        <br>
+    </div>
+  </div>
+</div>
+
+
+        </div>
+        <br>
+        <br>
+        </div>
+        <%=render 'layouts/footer'%>
+    </body>
+</html>

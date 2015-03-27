@@ -3,7 +3,6 @@
     <ul class="nav nav-tabs nav-pills">
       <li class="active" id="userTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Account Creation</b></a></li>
       <li class="" id=""><a href="#" class="btn btn-info" style="cursor:default;"><b>Basic Info</b></a></li>
-      <li class="" id=""><a href="#" class="btn btn-info" style="cursor:default;"><b>Address</b></a></li>
     </ul>
   </div>
   <%= form_for(@user) do |f| %>
@@ -74,7 +73,7 @@
           <div class="form-group row">
             <%= f.label :usertype,class:'control-label col-sm-2'%>
             <div class="col-sm-3">
-              <%= f.text_field :usertype,class:'form-control', placeholder: 'Email the user type' %>
+              <%= f.text_field :usertype,class:'form-control', placeholder: 'Enter the user type' %>
             </div>
             <div class="col-sm-6">
               <%if @user.errors[:usertype].any? %>

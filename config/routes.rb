@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get 'users'=>'users#index'
   get 'logout'=>'users#logout'
+  get 'settings'=>'users#settings'
   post 'users/login'=>'users#login'
   
   #post 'donors/loginAuthenticate'=>'donors#loginAuthenticate'
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
   end
   
   resources :users do
-    resources :charities,:donors,:admins
+    resources :charities,:donors
   end
   
   # Example resource route with options:

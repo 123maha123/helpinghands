@@ -3,7 +3,7 @@
     <ul class="nav nav-tabs nav-pills">
       <li class="" id="userTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Account Creation</b></a></li>
       <li class="active" id="infoTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Basic Info</b></a></li>
-      <li class="" id="addressTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Address</b></a></li>
+      <!--<li class="" id="addressTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Address</b></a></li>-->
     </ul>
   </div>
   <%= form_for([@user,@charity]) do |f| %>
@@ -71,8 +71,8 @@
             </div>
           </div>
           
-          <div class="form-group">
-            <div class="col-sm-4 col-sm-offset-3">
+          <div class="form-group row">
+            <!--<div class="col-sm-4 col-sm-offset-3">
               <a href="#address-tab" data-toggle="tab" class="btn btn-primary" id="nextSignupButton">Next</a>
             </div>
           </div>
@@ -80,7 +80,7 @@
         
         
         <div class="tab-pane" id="address-tab">
-          <div class="form-group row header-padding">
+          <div class="form-group row header-padding">-->
             <%= f.label :address,class:'control-label col-sm-2'%>
             <div class="col-sm-3">
               <%= f.text_field :address,class:'form-control', placeholder: 'Enter your address'%>
@@ -189,20 +189,17 @@
           </div>
           
           <div class="form-group row">
-            <%= f.label :user_id,class:'control-label col-sm-2'%>
-            <div class="col-sm-3">
-              <%= f.text_field :user_id,class:'form-control'%>
-            </div>
+              <%= f.hidden_field :user_id,class:'form-control'%>
           </div>
           
-          <div class="form-group">
+          <!--<div class="form-group">
             <div class="col-sm-2 col-sm-offset-1">
               <a href="#info-tab" data-toggle="tab" class="btn btn-primary" id="backSignupButton">Back</a>
             </div>
-          </div>
+          </div>-->
           
           <div class="form-group">
-            <div class="col-sm-4">
+            <div class="col-sm-4 col-sm-offset-3">
               <%=f.submit :Register,:class=>"btn btn-primary"%>
             </div>
           </div>
