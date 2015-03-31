@@ -32,7 +32,7 @@ class DonorsController < ApplicationController
 
     respond_to do |format|
       if @donor.save
-        format.html { redirect_to @donor, notice: 'Donor was successfully created.' }
+        format.html { render :trial, notice: 'Donor was successfully created.' }
         format.json { render :show, status: :created, location: @donor }
       else
         format.html { render :new }
