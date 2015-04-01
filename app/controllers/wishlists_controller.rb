@@ -4,7 +4,8 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    @charity = Charity.find(session[:id])
+    @wishlists = @charity.wishlists
   end
 
   # GET /wishlists/1
@@ -14,7 +15,9 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists/new
   def new
-    @wishlist = Wishlist.new
+    @charity = Charity.find(session[:id])
+    @wishlist = @charity.wishlists.build
+    #@wishlist = Wishlist.new
   end
 
   # GET /wishlists/1/edit
@@ -24,7 +27,9 @@ class WishlistsController < ApplicationController
   # POST /wishlists
   # POST /wishlists.json
   def create
-    @wishlist = Wishlist.new(wishlist_params)
+    #@wishlist = Wishlist.new(wishlist_params)
+    @charity = Charity.find(session[:id])
+    @wishlist = @charity.wishlists.build(wishlist_params)
 
     respond_to do |format|
       if @wishlist.save

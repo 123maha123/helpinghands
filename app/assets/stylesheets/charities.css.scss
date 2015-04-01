@@ -1,3 +1,46 @@
 // Place all the styles related to the charities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.charity-navbar{
+	/*background: #F5871F;
+	background: -moz-linear-gradient(top,  #F5871F 0%, #F25F22 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F5871F), color-stop(100%,#F25F22));
+	background: -webkit-linear-gradient(top,  #F5871F 0%,#F25F22 100%);
+	background: -o-linear-gradient(top,  #F5871F 0%,#F25F22 100%);
+	background: -ms-linear-gradient(top,  #F5871F 0%,#F25F22 100%);
+	background: linear-gradient(to bottom,  #F5871F 0%,#F25F22 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F5871F', endColorstr='#F25F22',GradientType=0 );*/
+	background: rgb(255,122,73);
+	background: -moz-linear-gradient(top,  rgba(255,122,73,1) 0%, rgba(255,82,76,1) 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,122,73,1)), color-stop(100%,rgba(255,82,76,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%); 
+	background: -o-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%); 
+	background: -ms-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a49', endColorstr='#ff524c',GradientType=0 ); 
+
+}
+
+.primary-nav li a{
+	color:#fff;
+	font-size: 1.2em;
+	padding: 15px 5px 5px 5px;
+	display: block;
+	font-style:light;
+	text-align:center;
+	
+}
+
+.primary-nav li a:hover{
+	background:rgba(255,255,255,.1)
+}
+
+.primary-nav li a:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+
+.table td,.table th {
+   text-align: center;   
+}

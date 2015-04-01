@@ -1,27 +1,42 @@
-<h1>Listing wishlists</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="jquery-1.11.2.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="users.js"></script>
+    </head>
+    <body>
+        <%=render 'layouts/navigation_bar'%>
+        <div class="container-fluid side-borders header-padding page-color">
+        <br>
 
-<table>
+
+<table class="table table-bordered table-striped">
   <thead>
-    <tr>
-      <th>Wname</th>
-      <th>Wtype</th>
-      <th>Isactive</th>
-      <th>Wdescription</th>
-      <th>Wphoto</th>
-      <th>Charity</th>
+    <tr style="color:#fff;background-color:#3a5171;">
+      <th class="col-sm-2">Photo</th>
+      <th class="col-sm-1">Name</th>
+      <th class="col-sm-1">Type</th>
+      <th class="col-sm-1">Isactive</th>
+      <th class="col-sm-4">Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @wishlists.each do |wishlist| %>
       <tr>
+        <td><%=image_tag wishlist.wphoto.url(:thumb) %></td>
         <td><%= wishlist.wname %></td>
         <td><%= wishlist.wtype %></td>
         <td><%= wishlist.isActive %></td>
         <td><%= wishlist.wdescription %></td>
-        <td><%= wishlist.wphoto %></td>
-        <td><%= wishlist.charity_id %></td>
+        <!--<td><%# wishlist.charity_id %></td>-->
         <td><%= link_to 'Show', wishlist %></td>
         <td><%= link_to 'Edit', edit_wishlist_path(wishlist) %></td>
         <td><%= link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,7 +44,13 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
+<%= link_to 'New item', new_charity_wishlist_path(@charity) %>
 
-<%= link_to 'New Wishlist', new_wishlist_path %>
+
+
+        <br>
+        </div>
+        <%=render 'layouts/footer'%>
+    </body>
+</html>

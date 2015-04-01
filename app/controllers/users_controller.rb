@@ -67,6 +67,7 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     session[:user_name]=nil
     session[:user_type]=nil
+    session[:charity_id]=nil
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
@@ -80,6 +81,8 @@ class UsersController < ApplicationController
       session[:user_id]=user.id
       session[:user_type]=user.usertype
       if user.usertype=="charity"
+        charity=Charity.find_by user_id:user.id
+        session[:id]=charity.id
         render 'charities/trial'
       else
         render 'donors/trial'
@@ -93,6 +96,7 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     session[:user_name]=nil
     session[:user_type]=nil
+    session[:charity_id]=nil
     render "donors/welcome"
   end
   

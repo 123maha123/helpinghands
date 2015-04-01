@@ -32,8 +32,8 @@ class CharitiesController < ApplicationController
 
     respond_to do |format|
       if @charity.save
-        session[:fill_details]="true"
-        format.html { redirect_to @charity, notice: 'Charity was successfully created.' }
+        session[:id]=@charity.id
+        format.html { render :trial, notice: 'Charity was successfully created.' }
         format.json { render :show, status: :created, location: @charity }
       else
         format.html { render :new }
@@ -64,6 +64,10 @@ class CharitiesController < ApplicationController
       format.html { redirect_to charities_url, notice: 'Charity was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def trial
+    @charity = Charity.find(session[:id])
   end
 
   private
