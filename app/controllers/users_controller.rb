@@ -83,7 +83,7 @@ class UsersController < ApplicationController
       if user.usertype=="charity"
         charity=Charity.find_by user_id:user.id
         session[:id]=charity.id
-        render 'charities/trial'
+        redirect_to charity_wishlists_path
       else
         render 'donors/trial'
       end

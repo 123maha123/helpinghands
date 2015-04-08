@@ -12,11 +12,19 @@
     </head>
     <body>
         <%=render 'layouts/navigation_bar'%>
-        <div class="container-fluid side-borders header-padding page-color">
+        <div class="container-fluid side-borders header-padding page-color col-sm-12">
         <br>
-
-
-<table class="table table-bordered table-striped">
+<div>
+                    <ul class="nav nav-tabs nav-pills">
+                        <li class="active"><a href="/wishlists" class="btn btn-info"><b>My Wishlist</b></a></li>
+                        <li class=""><a href="/charities/<%=session[:id]%>/wishlists/new" class="btn btn-info"><b>Create New Wishlists</b></a></li>
+                    </ul>
+                </div>
+<br>
+<br>
+<div class="container">
+  <%if @wishlists.count>0%>
+<table class="table table-bordered table-striped table-responsive">
   <thead>
     <tr style="color:#fff;background-color:#3a5171;">
       <th class="col-sm-2">Photo</th>
@@ -45,8 +53,12 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New item', new_charity_wishlist_path(@charity) %>
-
+<%else%>
+<h3>You didnt create any wishlist still !</h3>
+<br>
+<br>
+<%end%>
+</div>
 
 
         <br>

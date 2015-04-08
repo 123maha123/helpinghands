@@ -21,42 +21,39 @@
             </ul>
             <ul class="nav navbar-right navbar-nav">
                 <li>
-                    <% if current_user%>
-                        <% if current_user_type=="donor"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
-                                Welcome &nbsp;
-                                <% if current_user.nil?%>
-                                    <%=current_user.fname%>!
-                                <%else%>
-                                    Donor!
-                                <%end%>
-                                <span class="caret"></span>
-                            </a>
-                        <% elsif current_user_type=="charity"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
-                                Welcome &nbsp;
-                                <% if current_user.nil?%>
-                                    <%= current_user.charityName %>
-                                <%else%>
-                                    Charity!
-                                <%end%>
-                                <span class="caret"></span>
-                            </a>
-                        <% elsif current_user_type=="admin"%>
-                            <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
-                                Welcome &nbsp;
-                                <% if current_user.nil?%>
-                                    <%=current_user.fname%>!
-                                <%else%>
-                                    Admin!
-                                <%end%>
-                                <span class="caret"></span>
-                            </a>
-                        <%end%>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                            <li role="presentation" class=""><%=link_to :Settings,settings_path %></li>
-                            <li role="presentation" class=""><%= link_to :Logout, logout_path %></li>
-                        </u>l
+                    <% if current_user_type=="donor"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            Hi &nbsp;
+                            <% if current_user && !current_user.nil?%>
+                                <%=current_user.fname%>!
+                            <%else%>
+                                Donor!
+                            <%end%>
+                            <span class="caret"></span>
+                            <%=render "layouts/user_dropdown"%>
+                        </a>
+                    <% elsif current_user_type=="charity"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            Hi &nbsp;
+                            <% if current_user && !current_user.nil?%>
+                                <%= current_user.charityName %>
+                            <%else%>
+                                Charity!
+                            <%end%>
+                            <span class="caret"></span>
+                            <%=render "layouts/user_dropdown"%>
+                        </a>
+                    <% elsif current_user_type=="admin"%>
+                        <a class="dropdown-toggle" id="menu1" data-toggle="dropdown">
+                            Hi &nbsp;
+                            <% if current_user && !current_user.nil?%>
+                                <%=current_user.fname%>!
+                            <%else%>
+                                Admin!
+                            <%end%>
+                            <span class="caret"></span>
+                            <%=render "layouts/user_dropdown"%>
+                        </a>
                     <% else %>
                         <a href="#" class="btn" data-toggle="modal" data-target="#loginModal">
                             LOGIN/SIGNUP

@@ -1,7 +1,12 @@
 // Place all the styles related to the charities controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.charity-navbar{
+
+
+
+/*.charity-navbar{*/
+
+
 	/*background: #F5871F;
 	background: -moz-linear-gradient(top,  #F5871F 0%, #F25F22 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#F5871F), color-stop(100%,#F25F22));
@@ -10,7 +15,10 @@
 	background: -ms-linear-gradient(top,  #F5871F 0%,#F25F22 100%);
 	background: linear-gradient(to bottom,  #F5871F 0%,#F25F22 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#F5871F', endColorstr='#F25F22',GradientType=0 );*/
-	background: rgb(255,122,73);
+
+
+
+/*	background: rgb(255,122,73);
 	background: -moz-linear-gradient(top,  rgba(255,122,73,1) 0%, rgba(255,82,76,1) 100%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,122,73,1)), color-stop(100%,rgba(255,82,76,1)));
 	background: -webkit-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%); 
@@ -23,7 +31,7 @@
 
 .primary-nav li a{
 	color:#fff;
-	font-size: 1.2em;
+	font-size: 1.3em;
 	padding: 15px 5px 5px 5px;
 	display: block;
 	font-style:light;
@@ -32,7 +40,7 @@
 }
 
 .primary-nav li a:hover{
-	background:rgba(255,255,255,.1)
+	background-color:black
 }
 
 .primary-nav li a:after {
@@ -43,4 +51,126 @@
 
 .table td,.table th {
    text-align: center;   
+}
+
+.charity-navbar .brand, .charity-navbar .nav > li > a {
+	color:#fff;
+}
+.charity-navbar .brand, .charity-navbar .nav > li > a:hover {
+    color: #fff;
+    background: rgb(255,134,94); 
+background: -moz-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%, rgba(255,107,102,1) 100%); 
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,134,94,1)), color-stop(100%,rgba(255,107,102,1))); 
+background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%);
+background: -o-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%); 
+background: radial-gradient(ellipse at center,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff865e', endColorstr='#ff6b66',GradientType=1 ); 
+}
+
+.navbar-brand{
+	height:auto;
+	padding:15px 15px 15px 0
+}
+.navbar-brand,
+.navbar-brand:hover{color:#fff}
+.navbar-brand:visited{color:#fff}
+.navbar-brand strong{
+	font-size:2.5em;
+	font-weight:bold;
+	display:inline-block
+}
+.navbar-brand span{
+	display:inline-block;
+	margin:8px 0 0 5px
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+.charity-navbar {
+  //background-color: #ff6235;
+  	background: rgb(255,122,73);
+	background: -moz-linear-gradient(top,  rgba(255,122,73,1) 0%, rgba(255,82,76,1) 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,122,73,1)), color-stop(100%,rgba(255,82,76,1)));
+	background: -webkit-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%); 
+	background: -o-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%); 
+	background: -ms-linear-gradient(top,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,122,73,1) 0%,rgba(255,82,76,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7a49', endColorstr='#ff524c',GradientType=0 ); 
+  	border-color: #f98b37;
+}
+.charity-navbar .navbar-brand {
+  color: #ecf0f1;
+  font-weight: bold;
+}
+.charity-navbar .navbar-brand:hover, .charity-navbar .navbar-brand:focus {
+  color: #f7e2d2;
+}
+.charity-navbar .navbar-text {
+  color: #ecf0f1;
+}
+.charity-navbar .primary-nav > li > a {
+  color: #fff;
+  font-weight: bold;
+}
+.charity-navbar .primary-nav > li > a:hover, .charity-navbar .primary-nav > li > a:focus {
+  //color: #f7e2d2;
+	background: rgb(255,134,94); 
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%, rgba(255,107,102,1) 100%); 
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,134,94,1)), color-stop(100%,rgba(255,107,102,1))); 
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%);
+	background: -o-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%); 
+	background: radial-gradient(ellipse at center,  rgba(255,134,94,1) 0%,rgba(255,107,102,1) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff865e', endColorstr='#ff6b66',GradientType=1 ); 
+}
+.charity-navbar .primary-nav > .active > a, .charity-navbar .primary-nav > .active > a:hover, .charity-navbar .primary-nav > .active > a:focus {
+  color: #f7e2d2;
+  background-color: #f98b37;
+}
+.charity-navbar .primary-nav > .open > a, .charity-navbar .primary-nav > .open > a:hover, .charity-navbar .primary-nav > .open > a:focus {
+  color: #f7e2d2;
+  background-color: #f98b37;
+}
+.charity-navbar .navbar-toggle {
+  border-color: #f96639;
+}
+.charity-navbar .navbar-toggle:hover, .charity-navbar .navbar-toggle:focus {
+  background-color: #f96639;
+}
+.charity-navbar .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.charity-navbar .navbar-collapse,
+.charity-navbar .navbar-form {
+  border-color: #ecf0f1;
+}
+.charity-navbar .navbar-link {
+  color: #ecf0f1;
+}
+.charity-navbar .navbar-link:hover {
+  color: #f7e2d2;
+}
+
+@media (max-width: 767px) {
+  .charity-navbar .primary-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .charity-navbar .primary-nav .open .dropdown-menu > li > a:hover, .charity-navbar .primary-nav .open .dropdown-menu > li > a:focus {
+    color: #f7e2d2;
+  }
+  .charity-navbar .primary-nav .open .dropdown-menu > .active > a, .charity-navbar .primary-nav .open .dropdown-menu > .active > a:hover, .charity-navbar .primary-nav .open .dropdown-menu > .active > a:focus {
+    color: #f7e2d2;
+    background-color: #f98b37;
+  }
 }

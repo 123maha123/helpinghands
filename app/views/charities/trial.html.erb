@@ -14,7 +14,13 @@
         <%=render 'layouts/navigation_bar'%>
         <div class="container-fluid side-borders header-padding page-color">
         <br>
-            <a href="/charities/<%=session[:id]%>/wishlists/new">Add</a>
+        
+        <div>
+                    <ul class="nav nav-tabs nav-pills">
+                        <li class="active" id="userTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>My Wishlist</b></a></li>
+                        <li class="" id=""><a href="/charities/<%=session[:id]%>/wishlists/new" class="btn btn-info"><b>Create New Wishlists</b></a></li>
+                    </ul>
+                </div>
         <br>
         </div>
         <%=render 'layouts/footer'%>

@@ -1,5 +1,33 @@
-<h1>New wishlist</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', wishlists_path %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="jquery-1.11.2.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="users.js"></script>
+    </head>
+    <body>
+        <%=render 'layouts/navigation_bar'%>
+        <div class="container-fluid side-borders header-padding page-color">
+        <br>
+        
+<div>
+                    <ul class="nav nav-tabs nav-pills">
+                        <li class=""><a href="/wishlists" class="btn btn-info"><b>My Wishlist</b></a></li>
+                        <li class="active"><a href="/charities/<%=session[:id]%>/wishlists/new" class="btn btn-info"><b>Create New Wishlists</b></a></li>
+                    </ul>
+                </div>
+        
+        
+            <%= render 'form' %>
+        <br>
+        <%= link_to 'Back', wishlists_path %>
+        <br>
+        </div>
+        <%=render 'layouts/footer'%>
+    </body>
+</html>
