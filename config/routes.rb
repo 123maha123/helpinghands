@@ -1,4 +1,6 @@
 Rails.application.routes.draw do  
+  resources :categories
+
   resources :wishlists
 
   resources :charities
@@ -15,7 +17,8 @@ Rails.application.routes.draw do
   #post 'donors/loginAuthenticate'=>'donors#loginAuthenticate'
   #post 'charities/loginAuthenticate'=>'charities#loginAuthenticate'
   #post 'admins/loginAuthenticate'=>'admins#loginAuthenticate'
-  
+  get 'viewAdmins'=>'donors#listAdmin'
+  get 'viewWishlists'=>'wishlists#viewWishlists'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

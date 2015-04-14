@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="jquery-1.11.2.min.js"></script>
+        <script src="bootstrap.min.js"></script>
+        <script src="users.js"></script>
+    </head>
+    <body>
+        <%=render 'layouts/navigation_bar'%>
+        <div class="container-fluid side-borders header-padding page-color">
+            <br>
+            <nav class="navbar charity-navbar">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu_bar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" style="cursor:default;">Menu</a>
+                    </div>
+
+		    		<div class="collapse navbar-collapse" id="menu_bar">
+                        <ul class="nav navbar-nav primary-nav">
+                            <li><%=link_to "View Admins",viewAdmins_path%></li>
+	    			        <li><%=link_to "Create Admin",viewAdmins_path%></li>
+                            <li class="active"><%=link_to "Category",new_category_path%></li>
+                            <li><a href="#">View Wishlists</a></li>
+				            <li><a href="#">Create Users</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+				</div>
+		    </nav>
+            <br>
+            <div class="container-fluid col-sm-12">
+                    <div class="container col-sm-10 form-color form-border" style="padding-bottom:1%;float: none;margin: 0 auto;">
+                        <h3>Create new category :</h3>
+                        <%=render "form"%>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="container col-sm-10 form-color form-border table-responsive" style="padding-bottom:1%;float: none;margin: 0 auto;">
+                        <h3>Categories :</h3>
+                        <%if @categories.count>0%>
+                        <div class="container col-sm-12">
+                            <table class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th colspan="3"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% @categories.each do |category| %>
+                                        <tr>
+                                            <td><%= category.category_name %></td>
+                                            <td><%= link_to 'Show', category %></td>
+                                            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+                                            <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                        </tr>
+                                    <% end %>
+                                </tbody>
+                            </table>
+                            </div>
+                        <%else%>
+                            <h4 class="col-sm-4 col-sm-offset-1">No categories found !!!</h4>
+                        <%end%>
+                    </div>
+                    <br>
+                    <br>
+            </div>
+        <br>
+        </div>
+        <%=render 'layouts/footer'%>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+  <%= form_for(@category) do |f| %>
+          <div class="form-group row header-padding1">
+            <%= f.label "Category Name",class:'control-label col-sm-2'%>
+            <div class="col-sm-3">
+              <%= f.text_field :category_name, placeholder: 'Enter category name',class:'form-control'%>
+            </div>
+            <div class="col-sm-1">
+              <%=f.submit :Save,:class=>"btn btn-primary"%>
+            </div>
+            <div class="col-sm-4">
+              <%if @category.errors[:category_name].any? %>
+                <ul>
+                  <%msg=""%>
+                  <%for errMsg in @category.errors.full_messages_for(:category_name)%>
+                    <%msg="#{errMsg}. #{msg}"%>
+                  <%end%>
+                  <li id="errMsgList"><font face="Times New Roman" size="3" color="red"><%=msg%></font></li>
+                </ul>
+              <%end%>
+            </div>
+          </div>
+  <% end %>

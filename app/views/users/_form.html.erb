@@ -66,7 +66,7 @@
           <div class="form-group row">
             <%= f.label :usertype,class:'control-label col-sm-2'%>
             <div class="col-sm-3">
-              <!--<%= f.text_field :usertype,class:'form-control', placeholder: 'Enter the user type' %>-->
+              <%# f.text_field :usertype,class:'form-control', placeholder: 'Enter the user type' %>
               <%= f.select :usertype, options_for_select([["Helper", "donor"],["Charity", "charity"]], @user.usertype) %>
             </div>
             <div class="col-sm-6">

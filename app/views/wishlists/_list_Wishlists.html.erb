@@ -1,0 +1,43 @@
+<div class="container">
+  <%if @wishlists.count>0%>
+    <%@wishlists.each_with_index do |wishlist,index|%>
+      <% if index%4==0 %>
+        <br>
+        <div class="container">
+        <div class="row-fluid">
+      <% end%>
+        <% if index%4==0 %>
+          <div class="white-color col-sm-2">
+        <%else%>
+          <div class="white-color col-sm-2 col-sm-offset-1">
+        <% end%>
+            <div class="row">
+              <div class="container col-sm-12">
+                <div class="col-sm-12 img-container">
+                  <%=image_tag wishlist.wphoto.url(:thumb),class:"img-responsive center-image"%>
+                </div>
+              </div>  
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <h5><b><%= wishlist.wname %></b></h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <h5><b>Charity : <%=@charity[index]%></b></h5>
+              </div>
+            </div>
+          </div>
+      <% if (index)%4==3 %>
+        </div>
+        </div>
+        <br>
+      <%end%>
+    <%end%>
+  <%end%>
+</div>  
+
+        <%# link_to 'Show', wishlist %>
+        <%# link_to 'Edit', edit_wishlist_path(wishlist) %>
+        <%# link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %>

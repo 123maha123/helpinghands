@@ -65,6 +65,15 @@ class WishlistsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def viewWishlists
+    @wishlists=Wishlist.all
+    @charity=Array.new(@wishlists.count)
+    @wishlists.each_with_index{|wishlist,index|
+      charityName=Charity.find(wishlist.charity_id)
+      @charity[index]=charityName.charityName
+    }
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
