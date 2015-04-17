@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @category = Category.new
   end
 
   # GET /categories/1
@@ -25,10 +26,11 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
+    @categories = Category.all
     @category = Category.new(category_params)
     respond_to do |format|
       if @category.save
-        format.html { render :new, notice: 'Category was successfully created.' }
+        format.html { redirect_to controller:"categories",action:"new", notice: 'Category was successfully created.' }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -54,10 +56,13 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy
-    @category.destroy
-    respond_to do |format|
-      format.html { render new, notice: 'Category was successfully destroyed.' }
-      format.json { head :no_content }
+    
+    if @category.destroy
+      @categories = Category.all
+      respond_to do |format|
+        format.html { redirect_to controller:"categories",action:"new", notice: 'Category was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

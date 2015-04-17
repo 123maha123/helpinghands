@@ -13,6 +13,7 @@
     <body>
         <%=render 'layouts/navigation_bar'%>
         <br>
+        <%if session[:user_type]=="admin"%>
         <div class="container-fluid side-borders header-padding page-color">
             <nav class="navbar charity-navbar">
                 <div class="container">
@@ -48,6 +49,7 @@
             <br>
             <br>
         </div>
+        <%end%>
         <%=render 'layouts/footer'%>
     </body>
 </html>

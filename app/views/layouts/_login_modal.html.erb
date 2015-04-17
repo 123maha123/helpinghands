@@ -10,7 +10,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <%= form_tag( 'users/login', :method => :post) do %>
+                <%= form_tag( url_for(:controller => 'users', :action => 'login'), :method => :post) do %>
                     <%=render 'layouts/loginForm'%>
                 <%end%>
             </div>

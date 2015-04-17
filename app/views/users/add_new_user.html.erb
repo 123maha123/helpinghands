@@ -28,24 +28,27 @@
 
 		    		<div class="collapse navbar-collapse" id="menu_bar">
                         <ul class="nav navbar-nav primary-nav">
-                            <li class="active"><%=link_to "View Admins",viewAdmins_path%></li>
+                            <li><%=link_to "View Admins",viewAdmins_path%></li>
 	    			        <li><%=link_to "Create Admin",viewAdmins_path%></li>
                             <li><%=link_to "Category",new_category_path%></li>
                             <li><%=link_to "View Wishlists",viewWishlists_path%></li>
-				            <li><%=link_to "Create a Helper/Charity account",viewWishlists_path%></li>
+				            <li class="active"><%=link_to "Create a Helper/Charity account",viewWishlists_path%></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
 				</div>
 		    </nav>
             <br>
             <br>
-            <%if @donors.count>0%>
-                <div class="container col-sm-12">
-                    <div class="container table-responsive">
-                        <%=render "list_Donor_Admin"%>
-                    </div>
+            <div class="container">
+                <div>
+                    <ul class="nav nav-tabs nav-pills">
+                        <li class="active" id="userTab"><a href="#" class="btn btn-info" style="cursor:default;"><b>Account Creation</b></a></li>
+                        <li class="" id=""><a href="#" class="btn btn-info" style="cursor:default;"><b>Basic Info</b></a></li>
+                    </ul>
                 </div>
-            <%end%>
+                <%= render 'form' %>
+            </div>
+            <br>
         <br>
         </div>
         <%=render 'layouts/footer'%>

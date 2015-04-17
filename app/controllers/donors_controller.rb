@@ -1,5 +1,26 @@
+
 class DonorsController < ApplicationController
   before_action :set_donor, only: [:show, :edit, :update, :destroy]
+  
+
+
+
+
+
+
+
+
+  
+  def admin_trial
+    
+  end
+
+
+
+
+  
+  
+  
 
   # GET /donors
   # GET /donors.json

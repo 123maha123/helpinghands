@@ -20,18 +20,24 @@ html,body {
     color:#0475BA;
 }
   
-#section2{
+/*#section2{
     color:#fff;
-    background: rgb(79,133,187); /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%, rgba(58,81,113,1) 100%); /* FF3.6 */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(27%,rgba(79,133,187,1)), color-stop(100%,rgba(58,81,113,1))); /* Chrome,Safari4 */
-    background: -webkit-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); /* Chrome10,Safari5.1 */
-    background: -o-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); /* Opera 12 */
-    background: -ms-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); /* IE10 */
-    background: radial-gradient(ellipse at center,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#3a5171',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: rgb(79,133,187);
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%, rgba(58,81,113,1) 100%); 
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(27%,rgba(79,133,187,1)), color-stop(100%,rgba(58,81,113,1))); 
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); 
+    background: radial-gradient(ellipse at center,  rgba(79,133,187,1) 27%,rgba(58,81,113,1) 100%); 
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#3a5171',GradientType=1 ); 
 
+}*/
+
+#section2 {
+	background-color:#e2dfd7;
+    color:#665a3e;
 }
+
 #section4 {
 	background-color: #3a5171;
     color:#fff;

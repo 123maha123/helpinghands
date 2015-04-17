@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'logout'=>'users#logout'
   get 'settings'=>'users#settings'
   post 'users/login'=>'users#login'
-  
+
+  get  'admin_trial'=>'donors#admin_trial'
   #post 'donors/loginAuthenticate'=>'donors#loginAuthenticate'
   #post 'charities/loginAuthenticate'=>'charities#loginAuthenticate'
   #post 'admins/loginAuthenticate'=>'admins#loginAuthenticate'

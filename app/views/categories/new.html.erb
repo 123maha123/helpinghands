@@ -48,7 +48,7 @@
                     <div class="container col-sm-10 form-color form-border table-responsive" style="padding-bottom:1%;float: none;margin: 0 auto;">
                         <h3>Categories :</h3>
                         <%if @categories.count>0%>
-                        <div class="container col-sm-12">
+                        <div class="container col-sm-8 col-sm-offset-2">
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -60,7 +60,6 @@
                                     <% @categories.each do |category| %>
                                         <tr>
                                             <td><%= category.category_name %></td>
-                                            <td><%= link_to 'Show', category %></td>
                                             <td><%= link_to 'Edit', edit_category_path(category) %></td>
                                             <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                                         </tr>

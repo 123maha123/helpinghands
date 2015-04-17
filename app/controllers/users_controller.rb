@@ -84,6 +84,8 @@ class UsersController < ApplicationController
         charity=Charity.find_by user_id:user.id
         session[:id]=charity.id
         redirect_to charity_wishlists_path(charity)
+      elsif user.usertype=="admin"
+        redirect_to controller:"donors",action:"listAdmin"
       else
         render 'donors/trial'
       end
