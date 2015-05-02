@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'rest_client','1.8.3'
+
+# To parse HTML
 gem 'nokogiri','1.6.6.2'
+
 gem 'paperclip', '~> 4.2.1'
 # Validate email
 gem 'validates_email_format_of','1.6.2'

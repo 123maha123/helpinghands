@@ -87,7 +87,7 @@ class UsersController < ApplicationController
       elsif user.usertype=="admin"
         redirect_to controller:"donors",action:"listAdmin"
       else
-        render 'donors/trial'
+        redirect_to controller:"wishlists",action:"viewWishlists"
       end
     else
       render 'donors/welcome'

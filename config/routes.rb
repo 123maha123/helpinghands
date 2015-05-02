@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   #post 'admins/loginAuthenticate'=>'admins#loginAuthenticate'
   get 'viewAdmins'=>'donors#listAdmin'
   get 'viewWishlists'=>'wishlists#viewWishlists'
-  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

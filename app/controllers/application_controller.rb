@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  helper_method :current_user,:current_user_type
+  helper_method :current_user,:current_user_type,:categories_list
 
   def current_user
     # Note: we want to use "find_by_id" because it's OK to return a nil.

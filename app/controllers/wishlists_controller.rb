@@ -4,8 +4,12 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @charity = Charity.find(session[:id])
-    @wishlists = @charity.wishlists
+    if session[:user_type]=="charity"
+      @charity = Charity.find(session[:id])
+      @wishlists = @charity.wishlists
+    elsif session[:user_type]=="admin"
+      redirect_to controller:"wishlists",action:"viewWishlists"
+    end
   end
 
   # GET /wishlists/1
@@ -67,6 +71,7 @@ class WishlistsController < ApplicationController
   end
   
   def viewWishlists
+    @categories_list=Category.all
     @wishlists=Wishlist.all
     @charity=Array.new(@wishlists.count)
     @wishlists.each_with_index{|wishlist,index|
