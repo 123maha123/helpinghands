@@ -1,28 +1,12 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+HelpingHands
+======================================================================================================
+This is a Ruby on Rails app that needs to connect the needy with abundant. 
+A charity or NGO can posts its wishlists on the site and users will be able to donate those items.
+Similarly, donors can also display what they are willing to donate and charities and collect them. 
+We all have things piled up in the closet which are very less useful to us and may want to throw it out.
+The things which we dont need might be useful to other needy. 
+This portal lets people to connect to the needy and give them the gently used things which they want.
+For example, we may have got a dress as a present which doesnt fit us now. 
+There is no use in having that dress in our closet without using it. 
+We can identify whether any charity needs dresses and we can give it to them.
+In that way the dress is given a second life.
