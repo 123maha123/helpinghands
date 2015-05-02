@@ -8,4 +8,4 @@ puts response.class
 puts response.code
 res=JSON.parse(response.body)
 puts res
-puts "The name of the city is #{res['name']} : #{res['main']['temp']}" # DOGGIE!!!!!! 10001111 :*
+puts "The name of the city is #{res['name']} : #{res['main']['temp']}"

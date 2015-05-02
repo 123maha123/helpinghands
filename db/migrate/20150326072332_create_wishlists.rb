@@ -7,7 +7,8 @@ class CreateWishlists < ActiveRecord::Migration
       t.string :wdescription
       t.attachment :wphoto
       t.integer :charity_id
-
+      t.integer :donor_id
+      t.string :creatorType
       t.timestamps
     end
   end
