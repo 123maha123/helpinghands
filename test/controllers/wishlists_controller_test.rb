@@ -18,7 +18,7 @@ class WishlistsControllerTest < ActionController::TestCase
 
   test "should create wishlist" do
     assert_difference('Wishlist.count') do
-      post :create, wishlist: { charity_id: @wishlist.charity_id, isActive: @wishlist.isActive, wdescription: @wishlist.wdescription, wname: @wishlist.wname, wphoto: @wishlist.wphoto, wtype: @wishlist.wtype }
+      post :create, wishlist: { charity_id: @wishlist.charity_id, createdBy: @wishlist.createdBy, donor_id: @wishlist.donor_id, isActive: @wishlist.isActive, wdescription: @wishlist.wdescription, wname: @wishlist.wname, wphoto: @wishlist.wphoto, wtype: @wishlist.wtype }
     end
 
     assert_redirected_to wishlist_path(assigns(:wishlist))
@@ -35,7 +35,7 @@ class WishlistsControllerTest < ActionController::TestCase
   end
 
   test "should update wishlist" do
-    patch :update, id: @wishlist, wishlist: { charity_id: @wishlist.charity_id, isActive: @wishlist.isActive, wdescription: @wishlist.wdescription, wname: @wishlist.wname, wphoto: @wishlist.wphoto, wtype: @wishlist.wtype }
+    patch :update, id: @wishlist, wishlist: { charity_id: @wishlist.charity_id, createdBy: @wishlist.createdBy, donor_id: @wishlist.donor_id, isActive: @wishlist.isActive, wdescription: @wishlist.wdescription, wname: @wishlist.wname, wphoto: @wishlist.wphoto, wtype: @wishlist.wtype }
     assert_redirected_to wishlist_path(assigns(:wishlist))
   end
 

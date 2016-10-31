@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .img-container{
-    width: 250px;
-    height: 200px;
-    padding: 12%;
+    width: 100%;
+    height: 170px;
+    padding-top:12%;
 }
 
 .center-div{
@@ -14,4 +14,9 @@
 
 .center-image{
     margin: 0 auto;
+}
+
+.wishlist-height{
+    max-height: 200px;
+    max-width: 170px;
 }

@@ -7,6 +7,8 @@ one:
   wdescription: MyString
   wphoto: 
   charity_id: 1
+  donor_id: 1
+  createdBy: MyString
 
 two:
   wname: MyString
@@ -15,3 +17,5 @@ two:
   wdescription: MyString
   wphoto: 
   charity_id: 1
+  donor_id: 1
+  createdBy: MyString

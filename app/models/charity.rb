@@ -1,7 +1,7 @@
 class Charity < ActiveRecord::Base
   belongs_to :user
-  has_many :wishlists, :dependent=>:destroy
-  accepts_nested_attributes_for :wishlists
+  #has_many :wishlists, :dependent=>:destroy
+  #accepts_nested_attributes_for :wishlists
   validates :user_id,presence: true
   validates :charityName,presence: true
   validates :ownerfname, presence: true

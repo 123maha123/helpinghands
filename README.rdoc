@@ -1,5 +1,5 @@
 HelpingHands
-======================================================================================================
+=======================================================================================================
 This is a Ruby on Rails app that needs to connect the needy with abundant. 
 A charity or NGO can posts its wishlists on the site and users will be able to donate those items.
 Similarly, donors can also display what they are willing to donate and charities and collect them. 

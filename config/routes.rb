@@ -1,7 +1,7 @@
 Rails.application.routes.draw do  
-  resources :categories
-
   resources :wishlists
+
+  resources :categories
 
   resources :charities
 
@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'logout'=>'users#logout'
   get 'settings'=>'users#settings'
   post 'users/login'=>'users#login'
-
+  get 'donate'=>'wishlists#donate'
+  patch 'donate'=>'wishlists#donate'
+  match 'wishlists/:id'=>'wishlists#donate', via: [:get, :patch]
   get  'admin_trial'=>'donors#admin_trial'
   #post 'donors/loginAuthenticate'=>'donors#loginAuthenticate'
   #post 'charities/loginAuthenticate'=>'charities#loginAuthenticate'

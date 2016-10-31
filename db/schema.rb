@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417063734) do
+ActiveRecord::Schema.define(version: 20150502072805) do
 
   create_table "categories", force: true do |t|
     t.string   "category_name"
@@ -55,6 +55,22 @@ ActiveRecord::Schema.define(version: 20150417063734) do
     t.string   "password_digest"
     t.string   "email"
     t.string   "usertype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "wishlists", force: true do |t|
+    t.string   "wname"
+    t.string   "wtype"
+    t.string   "isActive"
+    t.string   "wdescription"
+    t.string   "wphoto_file_name"
+    t.string   "wphoto_content_type"
+    t.integer  "wphoto_file_size"
+    t.datetime "wphoto_updated_at"
+    t.integer  "charity_id"
+    t.integer  "donor_id"
+    t.string   "createdBy"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
