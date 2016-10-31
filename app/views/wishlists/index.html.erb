@@ -9,22 +9,103 @@
         <script src="jquery-1.11.2.min.js"></script>
         <script src="bootstrap.min.js"></script>
         <script src="users.js"></script>
+        <script src='//cdn.zarget.com/54561/58108.js'></script>
     </head>
     <body>
       <%=render 'layouts/navigation_bar'%>
-      <div class="container-fluid side-borders header-padding page-color col-sm-12">
+      <div class="container-fluid side-borders header-padding page-color full-screen-height">
+        <div class="col-sm-12">
         <br>
         <div>
           <ul class="nav nav-tabs nav-pills">
             <li class="active"><a href="/wishlists" class="btn btn-info"><b>My Wishlist</b></a></li>
-            <li class=""><a href="/charities/<%=session[:id]%>/wishlists/new" class="btn btn-info"><b>Create New Wishlists</b></a></li>
+            <li class=""><a href="/wishlists/new" class="btn btn-info"><b>Create New Wishlists</b></a></li>
           </ul>
         </div>
         <br>
         <br>
-        <%=render "list_Wishlists"%>
+        <%if @categories_list.count>0%>
+		    <div class="container-fluid col-sm-12">
+		            <div class="row">
+                        <div class="col-sm-3">
+                            <div class="sidebar-nav">
+                                <div class="navbar navbar-default" role="navigation">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                        <span class="visible-xs navbar-brand">Category</span>
+                                    </div>
+                                    <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                                        <ul class="nav navbar-nav">
+                                            <li class="sidebar-header visible-sm visible-lg visible-md"><a href="#">Categories</a></li>
+                                            <% @categories_list.each do |category| %>
+                                                <li><a><%=category.category_name%></a></li>
+                                            <%end%>
+                                        </ul>
+                                    </div><!--/.nav-collapse -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <%=render "list_Wishlists"%>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <%end%>
         <br>
-      </div>
+        </div>
+      </div>  
       <%=render 'layouts/footer'%>
     </body>
 </html>
+
+
+
+
+<!--<h1>Listing wishlists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wname</th>
+      <th>Wtype</th>
+      <th>Isactive</th>
+      <th>Wdescription</th>
+      <th>Wphoto</th>
+      <th>Charity</th>
+      <th>Donor</th>
+      <th>Createdby</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# @wishlists.each do |wishlist| %>
+      <tr>
+        <td><%# wishlist.wname %></td>
+        <td><%# wishlist.wtype %></td>
+        <td><%# wishlist.isActive %></td>
+        <td><%# wishlist.wdescription %></td>
+        <td><%# wishlist.wphoto %></td>
+        <td><%# wishlist.charity_id %></td>
+        <td><%# wishlist.donor_id %></td>
+        <td><%# wishlist.createdBy %></td>
+        <td><%# link_to 'Show', wishlist %></td>
+        <td><%# link_to 'Edit', edit_wishlist_path(wishlist) %></td>
+        <td><%# link_to 'Destroy', wishlist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>
+
+<br>
+
+<%# link_to 'New Wishlist', new_wishlist_path %>
+-->

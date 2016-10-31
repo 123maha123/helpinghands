@@ -1,5 +1,5 @@
-<%= form_for ([@charity,@wishlist]) do |f| %>
-  <div class="container col-sm-12 form-color form-border" style="padding-bottom:1%">
+<%= form_for(@wishlist) do |f| %>
+  <div class="container col-sm-12 form-color form-border" style="padding-bottom:1%;">
     <div class="form-group row header-padding">
             <%= f.label "Wishlist Name",class:'control-label col-sm-2'%>
             <div class="col-sm-3">
@@ -35,7 +35,6 @@
               <%end%>
             </div>
           </div>
-      
           <div class="form-group row">
             <%= f.label "Type",class:'control-label col-sm-2'%>
             <div class="col-sm-3">
@@ -53,10 +52,13 @@
               <%end%>
             </div>
           </div>
-      
+          <div class="form-group row">
+              <%= f.hidden_field :isActive,class:'form-control',:value=>"created"%>
+          </div>
           <div class="form-group row">
             <%= f.label "Wishlist Photo",class:'control-label col-sm-2'%>
             <div class="col-sm-3">
+              
               <%= f.file_field :wphoto %>
             </div>
             <div class="col-sm-6">
@@ -72,13 +74,22 @@
             </div>
           </div>
           <div class="form-group row">
-              <%= f.hidden_field :isActive,class:'form-control',:value=>"#{params[:isActive]}"%>
+            <%if current_user_type=='charity'%>
+              <%= f.hidden_field :charity_id,:value=>"#{current_user.id}",class:'form-control'%>
+            <%end%>
           </div>
-          
           <div class="form-group row">
-              <%= f.hidden_field :charity_id,class:'form-control'%>
+            <%if current_user_type=='donor'%>
+              <%= f.hidden_field :donor_id,:value=>"#{current_user.id}",class:'form-control'%>
+            <%end%>
           </div>
-          
+          <div class="form-group row">
+            <%if current_user_type=='charity'%>
+              <%= f.hidden_field :createdBy,:value=>'c',class:'form-control'%>
+            <%else%>
+              <%= f.hidden_field :createdBy,:value=>'d',class:'form-control'%>
+            <%end%>
+          </div>
           <div class="form-group">
             <div class="col-sm-4 col-sm-offset-3">
               <%=f.submit :Create,:class=>"btn btn-primary"%>
