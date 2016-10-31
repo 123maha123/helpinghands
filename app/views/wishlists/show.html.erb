@@ -30,5 +30,15 @@
   <%= @wishlist.charity_id %>
 </p>
 
+<p>
+  <strong>Donor:</strong>
+  <%= @wishlist.donor_id %>
+</p>
+
+<p>
+  <strong>Createdby:</strong>
+  <%= @wishlist.createdBy %>
+</p>
+
 <%= link_to 'Edit', edit_wishlist_path(@wishlist) %> |
 <%= link_to 'Back', wishlists_path %>
